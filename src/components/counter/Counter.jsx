@@ -12,6 +12,7 @@ class Counter extends Component {
     //since it is in the same class?
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   render() {
@@ -33,6 +34,11 @@ class Counter extends Component {
           decrementMethod={this.decrement}
         />
         <span className='count'>{this.state.counter}</span>
+        <div>
+          <button className='reset' onClick={this.reset}>
+            Reset
+          </button>
+        </div>
       </div>
     );
   }
@@ -44,8 +50,14 @@ class Counter extends Component {
   }
 
   decrement(by) {
+    this.setState((prevState) => {
+      return { counter: prevState.counter - by };
+    });
+  }
+
+  reset() {
     this.setState({
-      counter: this.state.counter - by,
+      counter: 0,
     });
   }
 }
