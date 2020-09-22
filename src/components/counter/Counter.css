@@ -6,14 +6,34 @@ button {
   width: 100px;
 }
 
-.count,
-.counter {
+.buttons {
   font-size: 15px;
-  padding: 15px 30px;
+  padding: 0px 0px 0px 0px;
   text-align: center;
 }
 
-button .reset {
-  background-color: brown;
-  width: 100px;
+.counter {
+  padding: 0px 0px 0px 0px;
+  text-align: center;
+}
+
+.count {
+  font-size: 100px;
+}
+
+.divCounters {
+  margin-bottom: 5px;
+}
+
+button.reset {
+  background-color: red;
+  width: 200px;
+}
+
+.divReset {
+  padding-top: 10px;
+}
+
+body {
+  padding: 15px 30px;
 }

@@ -18,23 +18,25 @@ class Counter extends Component {
   render() {
     return (
       <div className='counter'>
-        <CounterButton
-          by={1}
-          incrementMethod={this.increment}
-          decrementMethod={this.decrement}
-        />
-        <CounterButton
-          by={5}
-          incrementMethod={this.increment}
-          decrementMethod={this.decrement}
-        />
-        <CounterButton
-          by={10}
-          incrementMethod={this.increment}
-          decrementMethod={this.decrement}
-        />
+        <div className='divCounters'>
+          <CounterButton
+            by={1}
+            incrementMethod={this.increment}
+            decrementMethod={this.decrement}
+          />
+          <CounterButton
+            by={5}
+            incrementMethod={this.increment}
+            decrementMethod={this.decrement}
+          />
+          <CounterButton
+            by={10}
+            incrementMethod={this.increment}
+            decrementMethod={this.decrement}
+          />
+        </div>
         <span className='count'>{this.state.counter}</span>
-        <div>
+        <div className='divReset'>
           <button className='reset' onClick={this.reset}>
             Reset
           </button>
@@ -76,7 +78,7 @@ class CounterButton extends Component {
 
   render() {
     return (
-      <div className='count'>
+      <div className='buttons'>
         <button onClick={this.increment}>+{this.props.by}</button>
         <button onClick={this.decrement}>-{this.props.by}</button>
       </div>
