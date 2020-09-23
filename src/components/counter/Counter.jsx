@@ -67,25 +67,29 @@ class Counter extends Component {
 class CounterButton extends Component {
   constructor() {
     super();
-    this.state = {
+    /* this.state = {
       counter: 0,
     };
     //why throw an error? isn't 'this' already pointing 'Counter class?'
     //since it is in the same class?
     this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
+    this.decrement = this.decrement.bind(this); */
   }
 
   render() {
     return (
       <div className='buttons'>
-        <button onClick={this.increment}>+{this.props.by}</button>
-        <button onClick={this.decrement}>-{this.props.by}</button>
+        <button onClick={() => this.props.incrementMethod(this.props.by)}>
+          +{this.props.by}
+        </button>
+        <button onClick={() => this.props.decrementMethod(this.props.by)}>
+          -{this.props.by}
+        </button>
       </div>
     );
   }
 
-  increment() {
+  /* increment() {
     this.setState({
       counter: this.state.counter + this.props.by,
     });
@@ -99,7 +103,7 @@ class CounterButton extends Component {
     });
 
     this.props.decrementMethod(this.props.by);
-  }
+  } */
 }
 
 CounterButton.defaultProps = {
