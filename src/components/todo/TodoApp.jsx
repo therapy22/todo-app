@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class TodoApp extends Component {
   render() {
     return (
       <div className='TodoApp'>
         <Router>
-          <Route path='/' exact component={LoginComponent} />
-          <Route path='/login' component={LoginComponent} />
-          <Route path='/welcome' component={WelcomeComponent} />
+          <Switch>
+            <Route path='/' exact component={LoginComponent} />
+            <Route path='/login' component={LoginComponent} />
+            <Route path='/welcome' component={WelcomeComponent} />
+            <Route component={ErrorComponent} />
+          </Switch>
         </Router>
 
         {/* <LoginComponent />
@@ -22,6 +25,10 @@ class WelcomeComponent extends Component {
   render() {
     return <div>Welcome in28minutes</div>;
   }
+}
+
+function ErrorComponent() {
+  return <div>An Error Occurred.</div>;
 }
 
 class LoginComponent extends Component {
