@@ -66,11 +66,11 @@ class LoginComponent extends Component {
       this.state.username === 'in28minutes' &&
       this.state.password === 'dummy'
     ) {
-      console.log('Successful');
-      this.setState({
+      this.props.history.push('/welcome');
+      /* this.setState({
         showSuccessMessage: true,
         hasLoginFailed: false,
-      });
+      }); */
     } else {
       console.log('Faild');
       this.setState({
