@@ -69,7 +69,10 @@ class LoginComponent extends Component {
   render() {
     return (
       <div>
-        <ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed} />
+        {/* <ShowInvalidCredentials hasLoginFailed={this.state.hasLoginFailed} /> */}
+        {/* {this.showInvalidCredentials()} */}
+        {this.state.hasLoginFailed && <div>Invalid Credentials</div>}
+        {this.state.showSuccessMessage && <div>Login Sucessfull</div>}
         <ShowLoginSuccessful
           showSuccessMessage={this.state.showSuccessMessage}
         />
@@ -80,7 +83,7 @@ class LoginComponent extends Component {
           value={this.state.username}
           onChange={this.handleChange}
         />
-        Password:{' '}
+        Password:{''}
         <input
           type='text'
           name='password'
@@ -91,6 +94,15 @@ class LoginComponent extends Component {
       </div>
     );
   }
+
+  //just tried to replace function with function which is inside the component
+  /* showInvalidCredentials() {
+    if (this.state.hasLoginFailed) {
+      return <div>Invalid Credentials</div>;
+    } else {
+      return null;
+    }
+  } */
 }
 
 function ShowInvalidCredentials(props) {
@@ -102,7 +114,7 @@ function ShowInvalidCredentials(props) {
 
 function ShowLoginSuccessful(props) {
   if (props.showSuccessMessage) {
-    return <div>Login Sucessful</div>;
+    return <div>Login Sucessfull</div>;
   }
   return null;
 }
