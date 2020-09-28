@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 class TodoApp extends Component {
   render() {
@@ -27,9 +27,24 @@ class ListTodoComponent extends Component {
     super(props);
     this.state = {
       todos: [
-        { id: 1, description: 'Learn to Dance' },
-        { id: 2, description: 'Become an Expert at React' },
-        { id: 3, description: 'Visit India' },
+        {
+          id: 1,
+          description: 'Learn to Dance',
+          done: false,
+          targetDate: new Date(),
+        },
+        {
+          id: 2,
+          description: 'Become an Expert at React',
+          done: false,
+          targetDate: new Date(),
+        },
+        {
+          id: 3,
+          description: 'Visit India',
+          done: false,
+          targetDate: new Date(),
+        },
       ],
     };
   }
@@ -43,6 +58,8 @@ class ListTodoComponent extends Component {
             <tr>
               <th>id</th>
               <th>description</th>
+              <th>Is Completed?</th>
+              <th>targetDate</th>
             </tr>
           </thead>
           <tbody>
@@ -50,6 +67,8 @@ class ListTodoComponent extends Component {
               <tr>
                 <td>{todo.id}</td>
                 <td>{todo.description}</td>
+                <td>{todo.done.toString()}</td>
+                <td>{todo.targetDate.toString()}</td>
               </tr>
             ))}
           </tbody>
@@ -61,7 +80,12 @@ class ListTodoComponent extends Component {
 
 class WelcomeComponent extends Component {
   render() {
-    return <div>Welcome {this.props.match.params.name}</div>;
+    return (
+      <div>
+        Welcome {this.props.match.params.name}. You can manage your todos
+        <Link to='/todos'> here</Link>.
+      </div>
+    );
   }
 }
 
