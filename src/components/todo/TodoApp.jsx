@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import AuthenticationService from './AuthenticationService.js';
 import HeaderComponent from './HeadercComponent';
+import AuthenticatedRoute from './AuthenticatedRoute';
 
 class TodoApp extends Component {
   render() {
@@ -18,8 +19,11 @@ class TodoApp extends Component {
           <Switch>
             <Route path='/' exact component={LoginComponent} />
             <Route path='/login' component={LoginComponent} />
-            <Route path='/welcome/:name' component={WelcomeComponent} />
-            <Route path='/todos' component={ListTodoComponent} />
+            <AuthenticatedRoute
+              path='/welcome/:name'
+              component={WelcomeComponent}
+            />
+            <AuthenticatedRoute path='/todos' component={ListTodoComponent} />
             <Route path='/logout' component={ListTodoComponent} />
             <Route component={ErrorComponent} />
           </Switch>
