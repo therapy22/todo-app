@@ -12,6 +12,9 @@ import AuthenticatedRoute from './AuthenticatedRoute';
 import LoginComponent from './LoginComponent';
 import ListTodoComponent from './ListTodosComponent';
 import FooterComponent from './FooterComponent';
+import LogoutComponent from './LogoutComponent';
+import WelcomeComponent from './WelcomeComponent';
+import ErrorComponent from './ErrorComponent';
 
 class TodoApp extends Component {
   render() {
@@ -32,41 +35,9 @@ class TodoApp extends Component {
           </Switch>
           <FooterComponent />
         </Router>
-
-        {/* <LoginComponent />
-        <WelcomeComponent /> */}
       </div>
     );
   }
-}
-
-class LogoutComponent extends Component {
-  render() {
-    return (
-      <>
-        <h1>You are logged out</h1>
-        <div className='container'>Thank You for Using Our Application.</div>
-      </>
-    );
-  }
-}
-
-class WelcomeComponent extends Component {
-  render() {
-    return (
-      <>
-        <h1>Welcome!</h1>
-        <div>
-          Welcome {this.props.match.params.name}. You can manage your todos
-          <Link to='/todos'> here</Link>.
-        </div>
-      </>
-    );
-  }
-}
-
-function ErrorComponent() {
-  return <div>An Error Occurred.</div>;
 }
 
 export default TodoApp;
