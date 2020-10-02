@@ -1,14 +1,5 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
-  withRouter,
-} from 'react-router-dom';
 import AuthenticationService from './AuthenticationService.js';
-import HeaderComponent from './HeadercComponent';
-import AuthenticatedRoute from './AuthenticatedRoute';
 
 class LoginComponent extends Component {
   constructor(props) {
@@ -115,7 +106,7 @@ class LoginComponent extends Component {
     } */
 }
 
-function ShowInvalidCredentials(props) {
+/* function ShowInvalidCredentials(props) {
   if (props.hasLoginFailed) {
     return <div>Invalid Credentials</div>;
   }
@@ -127,6 +118,6 @@ function ShowLoginSuccessful(props) {
     return <div>Login Sucessfull</div>;
   }
   return null;
-}
+} */
 
 export default LoginComponent;

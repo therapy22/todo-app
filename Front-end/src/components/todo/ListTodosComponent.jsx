@@ -1,15 +1,4 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
-  withRouter,
-} from 'react-router-dom';
-import AuthenticationService from './AuthenticationService.js';
-import HeaderComponent from './HeadercComponent';
-import AuthenticatedRoute from './AuthenticatedRoute';
-import LoginComponent from './LoginComponent';
 
 class ListTodoComponent extends Component {
   constructor(props) {
