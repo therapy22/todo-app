@@ -7,8 +7,11 @@ class WelcomeComponent extends Component {
     super(props);
     this.retrieveWelcomeMessage = this.retrieveWelcomeMessage.bind(this);
     this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this);
+    this.handleRetrieveHelloBean = this.handleRetrieveHelloBean.bind(this);
+    this.retrieveHelloBean = this.retrieveHelloBean.bind(this);
     this.state = {
       welcomeMessage: '',
+      helloBean: '',
     };
   }
 
@@ -28,8 +31,12 @@ class WelcomeComponent extends Component {
           >
             Get Welcome Message
           </button>
+          <button onClick={this.retrieveHelloBean} className='btn btn-success'>
+            Get Hello Bean
+          </button>
         </div>
         <div className='container'>{this.state.welcomeMessage}</div>
+        <div className='container'>{this.state.helloBean}</div>
       </>
     );
   }
@@ -44,6 +51,18 @@ class WelcomeComponent extends Component {
   handleSuccessfulResponse(response) {
     this.setState({
       welcomeMessage: response.data,
+    });
+  }
+
+  retrieveHelloBean() {
+    HelloWorldService.executeHelloWorldBean().then((response) =>
+      this.handleRetrieveHelloBean(response)
+    );
+  }
+
+  handleRetrieveHelloBean(response) {
+    this.setState({
+      helloBean: response.data.message,
     });
   }
 }
