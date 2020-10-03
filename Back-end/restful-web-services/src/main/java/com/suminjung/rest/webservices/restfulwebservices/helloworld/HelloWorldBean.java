@@ -1,4 +1,4 @@
-package com.suminjung.rest.webservices.restfulwebservices;
+package com.suminjung.rest.webservices.restfulwebservices.helloworld;
 
 public class HelloWorldBean {
 
