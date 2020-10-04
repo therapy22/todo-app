@@ -5,8 +5,10 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Service
+@CrossOrigin(origins="http://localhost:4200")
 public class TodoHardcodedService {
  
 	private static List<Todo> todos = new ArrayList();
@@ -15,7 +17,7 @@ public class TodoHardcodedService {
 	static {
 		todos.add(new Todo(++idCounter, "in28minutes", "Learn to Dance", new Date(), false));
 		todos.add(new Todo(++idCounter, "in28minutes", "Learn about Microservices", new Date(), false));
-		todos.add(new Todo(++idCounter, "in28minutes", "Learn to Angular", new Date(), false));
+		todos.add(new Todo(++idCounter, "in28minutes", "Learn about Angular", new Date(), false));
 	}
 	
 	public List<Todo> findAll() {
